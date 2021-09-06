@@ -26,13 +26,13 @@ export class VideoConferencingExampleApplication extends BootMixin(
   constructor(options: ApplicationConfig = {}) {
     dotenv.config();
     dotenvExt.load({
-      schema: '.env.example',
+      schema: '.env',
       errorOnMissing: true,
       includeProcessEnv: true,
     });
     options.rest = options.rest || {};
     options.rest.port = +(process.env.PORT ?? port);
-    options.rest.host = process.env.HOST;
+    options.rest.host = 'localhost';
     super(options);
 
     // Set up the custom sequence
